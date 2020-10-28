@@ -82,12 +82,12 @@ public class ArbolRN {
     }
 
     private void arreglarInsercion(Nodo nodo) {
-        Nodo u;
+        Nodo nodoInterno;
         while (nodo.padre.color == 1) {
             if (nodo.padre == nodo.padre.padre.der) {
-                u = nodo.padre.padre.izq;
-                if (u.color == 1) {
-                    u.color = 0;
+                nodoInterno = nodo.padre.padre.izq;
+                if (nodoInterno.color == 1) {
+                    nodoInterno.color = 0;
                     nodo.padre.color = 0;
                     nodo.padre.padre.color = 1;
                     nodo = nodo.padre.padre;
@@ -101,10 +101,10 @@ public class ArbolRN {
                     rotacionIzquierda(nodo.padre.padre);
                 }
             } else {
-                u = nodo.padre.padre.der;
+                nodoInterno = nodo.padre.padre.der;
 
-                if (u.color == 1) {
-                    u.color = 0;
+                if (nodoInterno.color == 1) {
+                    nodoInterno.color = 0;
                     nodo.padre.color = 0;
                     nodo.padre.padre.color = 1;
                     nodo = nodo.padre.padre;
