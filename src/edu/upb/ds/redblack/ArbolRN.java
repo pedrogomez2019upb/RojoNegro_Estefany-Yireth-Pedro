@@ -3,12 +3,12 @@ package edu.upb.ds.redblack;
 public class ArbolRN {
 
     public Nodo root;
-    public Nodo TNULL;
+    public Nodo nulo;
 
     public void rotacionIzquierda(Nodo nodo) {
         Nodo y = nodo.der;
         nodo.der = y.izq;
-        if (y.izq != TNULL) {
+        if (y.izq != nulo) {
             y.izq.padre = nodo;
         }
         y.izq = nodo.padre;
@@ -26,7 +26,7 @@ public class ArbolRN {
     public void rotacionDerecha(Nodo nodo) {
         Nodo y = nodo.izq;
         nodo.izq = y.der;
-        if (y.der != TNULL) {
+        if (y.der != nulo) {
             y.der.padre = nodo;
         }
         y.padre = nodo.padre;
@@ -44,14 +44,14 @@ public class ArbolRN {
         Nodo nodo = new Nodo();
         nodo.padre = null;
         nodo.data = llave;
-        nodo.izq = TNULL;
-        nodo.der = TNULL;
+        nodo.izq = nulo;
+        nodo.der = nulo;
         nodo.color = 1;
 
         Nodo y = null;
         Nodo x = this.root;
 
-        while (x != TNULL) {
+        while (x != nulo) {
             y = x;
             if (nodo.data < x.data) {
                 x = x.izq;
@@ -130,7 +130,7 @@ public class ArbolRN {
     }
 
     private void asistenteImpresion(Nodo root, String identacion, boolean boolUltimo) {
-        if (root != TNULL) {
+        if (root != nulo) {
             System.out.print(identacion);
             if (boolUltimo) {
                 System.out.print("Derecha----");
